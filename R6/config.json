@@ -1,0 +1,53 @@
+{
+    "aimbot": {
+        "enabled": true,
+        "key": "alt",
+        "speed": 350,
+        "target_choice": "neck",
+        "smoothing_factor": 0.3,
+        "prediction_time": 0.06,
+        "panic_key": "end"
+    },
+    "triggerbot": {
+        "enabled": true,
+        "key": "x",
+        "min_click_delay": 0.09,
+        "max_click_delay": 0.3,
+        "min_release_delay": 0.1,
+        "max_release_delay": 0.3
+    },
+    "display": {
+        "boxes_enabled": true,
+        "scanning_box_enabled": true,
+        "input_width": 320,
+        "input_height": 320,
+        "monitor_index": 0
+    },
+    "keys": {
+        "allowed_keys": [
+            "alt",
+            "shift",
+            "caps lock",
+            "x",
+            "c",
+            "v",
+            "b",
+            "z",
+            "end"
+        ]
+    },
+    "aiming": {
+        "offset_x": 2,
+        "offset_y": 3,
+        "target_offsets": {
+            "head": 0.1,
+            "neck": 0.2,
+            "chest": 0.3,
+            "legs": 0.8,
+            "balls": 0.5
+        }
+    },
+    "system": {
+        "monitor_index": 0
+    }
+}

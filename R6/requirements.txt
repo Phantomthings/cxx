@@ -1,0 +1,12 @@
+numpy
+opencv-python
+mss
+pynput
+pycuda
+tensorrt
+pyautogui
+Pillow
+psutil
+# Optional packages for development
+pytest
+black
