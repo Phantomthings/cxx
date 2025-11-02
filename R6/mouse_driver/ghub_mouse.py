@@ -26,6 +26,15 @@ class LogiFck:
         Args:
         - dll_path: The absolute path to the ghub_mouse.dll library.
         """
+        # Ensure attributes always exist even if initialization fails
+        self.gm = None
+        self.gmok = 0
+        self.mouse_open = self._create_stub_function('mouse_open')
+        self.moveR = self._create_stub_function('moveR')
+        self.press = self._create_stub_function('press')
+        self.release = self._create_stub_function('release')
+        self.mouse_close = self._create_stub_function('mouse_close')
+
         if dll_path is None:
             self.dlldir = path.abspath(path.join(path.dirname(__file__), 'ghub_mouse.dll'))
         else:
@@ -69,6 +78,15 @@ class LogiFck:
         except Exception as e:
             logger.error(f"LogiFck: Unexpected error during initialization: {e}")
             self.gmok = 0
+
+    def _create_stub_function(self, name):
+        """Return a stub function that logs attempts when the DLL is unavailable."""
+
+        def _stub(*args, **kwargs):
+            logger.warning(f"LogiFck: Stub '{name}' called because DLL functionality is unavailable. args={args}, kwargs={kwargs}")
+            return 0 if name == 'mouse_open' else -1
+
+        return _stub
 
     def get_function(self, func_name, argtypes):
         """
